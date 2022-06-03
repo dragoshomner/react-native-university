@@ -1,4 +1,4 @@
-import { postsApi } from '../actions/posts/getPosts';
+import { postsApi } from '../actions/posts/postsApi';
 
 export const rootReducer = {
     [postsApi.reducerPath]: postsApi.reducer,

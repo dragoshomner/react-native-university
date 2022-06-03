@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, FlatList } from 'react-native';
-import { useGetPostsQuery } from '../../redux/actions/posts/getPosts';
+import { useGetPostsQuery } from '../../redux/actions/posts/postsApi';
 import { PostItem } from './PostItem';
 import styles from './PostsList.style';
 

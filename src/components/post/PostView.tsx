@@ -1,20 +1,20 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text } from 'react-native';
+import type { NativeStackScreenProps } from '@react-navigation/native-stack';
+import { useGetPostByIdQuery } from '../../redux/actions/posts/postsApi';
+import type { PostStackParamList } from '../../screens/Posts';
+import styles from './PostView.style';
 
-const PostView = () => {
+type Props = NativeStackScreenProps<PostStackParamList, 'PostView'>;
+
+const PostView = ({ route }: Props) => {
+    const { data } = useGetPostByIdQuery(route?.params?.postId);
+
     return (
         <View style={styles.container}>
-            <Text>Post View</Text>
+            <Text>{data?.title}</Text>
         </View>
     );
 };
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-});
 
 export default PostView;

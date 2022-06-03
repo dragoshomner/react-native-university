@@ -21,6 +21,9 @@ export const PostItem = ({ post }: Props) => {
                 navigation.navigate('Posts', {
                     screen: 'PostView',
                     initial: false,
+                    params: {
+                        postId: post.id,
+                    },
                 })
             }>
             <Text style={styles.title}>{formatTitle(post.title)}</Text>
