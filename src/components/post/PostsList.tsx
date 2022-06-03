@@ -14,6 +14,7 @@ export const PostsList = () => {
                     data={data}
                     keyExtractor={item => item.id.toString()}
                     maxToRenderPerBatch={10}
+                    showsVerticalScrollIndicator={false}
                     renderItem={({ item }) => <PostItem post={item} />}
                 />
             </View>

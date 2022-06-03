@@ -29,7 +29,7 @@ const RootNavigator = () => {
                     options={{
                         tabBarIcon: ({ color, size }: TabBarIconType) => (
                             <MaterialIcons
-                                name="news"
+                                name="inbox"
                                 color={color}
                                 size={size}
                             />
