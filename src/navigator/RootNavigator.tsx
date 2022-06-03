@@ -3,8 +3,14 @@ import { NavigationContainer } from '@react-navigation/native';
 import type { BottomTabNavigationOptions } from '@react-navigation/bottom-tabs';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import Movies from '../screens/Posts';
+import Posts from '../screens/Posts';
 import Favorites from '../screens/Favorites';
+import { ColorValue } from 'react-native';
+
+type TabBarIconType = {
+    color: number | ColorValue | undefined;
+    size: number | undefined;
+};
 
 const Tab = createBottomTabNavigator();
 
@@ -18,12 +24,12 @@ const RootNavigator = () => {
         <NavigationContainer>
             <Tab.Navigator screenOptions={tabBarOptions}>
                 <Tab.Screen
-                    name="Movies"
-                    component={Movies}
+                    name="Posts"
+                    component={Posts}
                     options={{
-                        tabBarIcon: ({ color, size }) => (
+                        tabBarIcon: ({ color, size }: TabBarIconType) => (
                             <MaterialIcons
-                                name="movie-filter"
+                                name="news"
                                 color={color}
                                 size={size}
                             />
@@ -34,7 +40,7 @@ const RootNavigator = () => {
                     name="Favorites"
                     component={Favorites}
                     options={{
-                        tabBarIcon: ({ color, size }) => (
+                        tabBarIcon: ({ color, size }: TabBarIconType) => (
                             <MaterialIcons
                                 name="favorite"
                                 color={color}

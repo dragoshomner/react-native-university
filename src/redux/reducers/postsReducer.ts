@@ -1,6 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { PostsListType } from '../../types/Post.types';
-import { RootState } from '../store';
 
 interface PostState {
     posts: PostsListType;
@@ -21,7 +20,5 @@ export const postSlice = createSlice({
 });
 
 export const { getPosts } = postSlice.actions;
-
-export const selectCount = (state: RootState) => state.posts;
 
 export default postSlice.reducer;
