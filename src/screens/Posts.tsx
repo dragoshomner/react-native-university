@@ -1,21 +1,19 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { PostsList } from '../components/post/PostsList';
+import PostView from '../components/post/PostView';
 
-const Posts = () => {
-    return (
-        <View style={styles.container}>
-            <PostsList />
-        </View>
-    );
+const Stack = createNativeStackNavigator();
+
+const postsNestedBarOptions = {
+    title: 'Posts',
 };
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-});
+const Posts = () => (
+    <Stack.Navigator screenOptions={postsNestedBarOptions}>
+        <Stack.Screen name="PostsList" component={PostsList} />
+        <Stack.Screen name="PostView" component={PostView} />
+    </Stack.Navigator>
+);
 
 export default Posts;

@@ -3,9 +3,9 @@ import { NavigationContainer } from '@react-navigation/native';
 import type { BottomTabNavigationOptions } from '@react-navigation/bottom-tabs';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import Posts from '../screens/Posts';
 import Favorites from '../screens/Favorites';
 import { ColorValue } from 'react-native';
+import Posts from '../screens/Posts';
 
 type TabBarIconType = {
     color: number | ColorValue | undefined;
@@ -17,6 +17,7 @@ const Tab = createBottomTabNavigator();
 const tabBarOptions: BottomTabNavigationOptions = {
     tabBarShowLabel: false,
     tabBarActiveTintColor: '#9381ff',
+    headerShown: false,
 };
 
 const RootNavigator = () => {
