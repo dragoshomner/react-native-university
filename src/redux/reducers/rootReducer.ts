@@ -1,8 +1,5 @@
-import { combineReducers } from 'redux';
-import postsReducer from './postsReducer';
+import { postsApi } from '../actions/posts/getPosts';
 
-export const rootReducer = combineReducers({
-    posts: postsReducer,
-});
-
-export type RootState = ReturnType<typeof rootReducer>;
+export const rootReducer = {
+    [postsApi.reducerPath]: postsApi.reducer,
+};

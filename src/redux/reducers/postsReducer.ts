@@ -1,20 +1,27 @@
-import { DispatchPayload } from '../../types/Dispatch.types';
-import { PostItemType, PostsListType } from '../../types/Post.types';
-import { GET_POSTS } from '../actions/actions';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { PostsListType } from '../../types/Post.types';
+import { RootState } from '../store';
 
-const initialState = {
+interface PostState {
+    posts: PostsListType;
+}
+
+const initialState: PostState = {
     posts: [],
 };
 
-type ActionType = DispatchPayload<PostItemType | PostsListType>;
+export const postSlice = createSlice({
+    name: 'post',
+    initialState,
+    reducers: {
+        getPosts: (state, action: PayloadAction<PostsListType>) => {
+            state.posts = action.payload;
+        },
+    },
+});
 
-function postsReducer(state = initialState, action: ActionType) {
-    switch (action.type) {
-        case GET_POSTS:
-            return { ...state, posts: action.payload };
-        default:
-            return state;
-    }
-}
+export const { getPosts } = postSlice.actions;
 
-export default postsReducer;
+export const selectCount = (state: RootState) => state.posts;
+
+export default postSlice.reducer;
