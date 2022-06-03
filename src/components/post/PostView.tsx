@@ -5,11 +5,13 @@ import { useGetPostByIdQuery } from '../../redux/actions/posts/postsApi';
 import type { PostStackParamList } from '../../screens/Posts';
 import styles from './PostView.style';
 import { LoadingIndicator } from '../utils/LoadingIndicator';
+import { CommentsList } from '../comments/CommentsList';
 
 type Props = NativeStackScreenProps<PostStackParamList, 'PostView'>;
 
 const PostView = ({ route }: Props) => {
-    const { data, isLoading } = useGetPostByIdQuery(route.params.postId);
+    const postId = route.params.postId;
+    const { data, isLoading } = useGetPostByIdQuery(postId);
 
     if (isLoading) {
         return <LoadingIndicator />;
@@ -19,6 +21,7 @@ const PostView = ({ route }: Props) => {
         <View style={styles.container}>
             <Text style={styles.title}>{formatTitle(data.title)}</Text>
             <Text style={styles.content}>{data.body}</Text>
+            <CommentsList postId={postId} />
         </View>
     ) : (
         <View />
