@@ -3,6 +3,8 @@ import { Text, TouchableOpacity } from 'react-native';
 import type { PostItemType } from '../../types/Post.types';
 import styles from './PostItem.style';
 import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { RootStackParamList } from '../../navigator/RootNavigator';
 
 type Props = {
     post: PostItemType;
@@ -12,7 +14,8 @@ const MAX_TITLE_SIZE = 75;
 const MAX_BODY_SIZE = 100;
 
 export const PostItem = ({ post }: Props) => {
-    const navigation = useNavigation();
+    const navigation =
+        useNavigation<NativeStackNavigationProp<RootStackParamList>>();
 
     return (
         <TouchableOpacity

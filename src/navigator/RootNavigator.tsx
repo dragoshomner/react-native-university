@@ -1,11 +1,19 @@
 import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
+import {
+    NavigationContainer,
+    NavigatorScreenParams,
+} from '@react-navigation/native';
 import type { BottomTabNavigationOptions } from '@react-navigation/bottom-tabs';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import Authors from '../screens/Authors';
+import Authors, { AuthorStackParamList } from '../screens/Authors';
 import { ColorValue } from 'react-native';
-import Posts from '../screens/Posts';
+import Posts, { PostStackParamList } from '../screens/Posts';
+
+export type RootStackParamList = {
+    Posts: NavigatorScreenParams<PostStackParamList>;
+    Authors: NavigatorScreenParams<AuthorStackParamList>;
+};
 
 type TabBarIconType = {
     color: number | ColorValue | undefined;
