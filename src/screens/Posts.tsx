@@ -10,14 +10,26 @@ export type PostStackParamList = {
 
 const PostStack = createNativeStackNavigator<PostStackParamList>();
 
-const postsNestedBarOptions = {
+const postsListNestedBarOptions = {
     title: 'Posts',
 };
 
+const postViewNestedBarOptions = {
+    title: 'Post',
+};
+
 const Posts = () => (
-    <PostStack.Navigator screenOptions={postsNestedBarOptions}>
-        <PostStack.Screen name="PostsList" component={PostsList} />
-        <PostStack.Screen name="PostView" component={PostView} />
+    <PostStack.Navigator>
+        <PostStack.Screen
+            name="PostsList"
+            component={PostsList}
+            options={postsListNestedBarOptions}
+        />
+        <PostStack.Screen
+            name="PostView"
+            component={PostView}
+            options={postViewNestedBarOptions}
+        />
     </PostStack.Navigator>
 );
 

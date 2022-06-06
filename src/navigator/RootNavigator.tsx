@@ -3,7 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import type { BottomTabNavigationOptions } from '@react-navigation/bottom-tabs';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import Favorites from '../screens/Favorites';
+import Authors from '../screens/Authors';
 import { ColorValue } from 'react-native';
 import Posts from '../screens/Posts';
 
@@ -38,12 +38,12 @@ const RootNavigator = () => {
                     }}
                 />
                 <Tab.Screen
-                    name="Favorites"
-                    component={Favorites}
+                    name="Authors"
+                    component={Authors}
                     options={{
                         tabBarIcon: ({ color, size }: TabBarIconType) => (
                             <MaterialIcons
-                                name="favorite"
+                                name="person"
                                 color={color}
                                 size={size}
                             />
