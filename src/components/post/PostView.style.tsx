@@ -23,6 +23,13 @@ const styles = StyleSheet.create({
         marginTop: 20,
         lineHeight: 25,
     },
+    author: {
+        marginLeft: 10,
+        fontStyle: 'italic',
+    },
+    authorIcon: {
+        paddingRight: 10,
+    },
 });
 
 export default styles;
