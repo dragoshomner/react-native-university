@@ -19,11 +19,11 @@ export const AuthorItem = ({ author }: Props) => {
         <TouchableOpacity
             style={styles.container}
             onPress={() =>
-                navigation.navigate('Posts', {
-                    screen: 'PostView',
+                navigation.navigate('Authors', {
+                    screen: 'AuthorView',
                     initial: false,
                     params: {
-                        postId: author.id,
+                        authorId: author.id,
                     },
                 })
             }>

@@ -1,7 +1,7 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React from 'react';
 import { AuthorsList } from '../components/author/AuthorsList';
-import { AuthorView } from '../components/author/AuthorView';
+import AuthorView from '../components/author/AuthorView';
 
 export type AuthorStackParamList = {
     AuthorsList: undefined;

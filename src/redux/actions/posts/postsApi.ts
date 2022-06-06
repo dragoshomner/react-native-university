@@ -16,6 +16,9 @@ export const postsApi = createApi({
         getPostComments: builder.query<CommentsListType, number>({
             query: id => `/posts/${id}/comments`,
         }),
+        getPostsByAuthor: builder.query<PostsListType, number>({
+            query: id => `/users/${id}/posts`,
+        }),
     }),
 });
 
@@ -23,4 +26,5 @@ export const {
     useGetPostsQuery,
     useGetPostByIdQuery,
     useGetPostCommentsQuery,
+    useGetPostsByAuthorQuery,
 } = postsApi;
