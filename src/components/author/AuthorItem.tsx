@@ -2,6 +2,7 @@ import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import React from 'react';
 import { Text, TouchableOpacity } from 'react-native';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import { RootStackParamList } from '../../navigator/RootNavigator';
 import { AuthorItemType } from '../../types/Author.types';
 import styles from './AuthorItem.style';
@@ -27,7 +28,16 @@ export const AuthorItem = ({ author }: Props) => {
                 })
             }>
             <Text style={styles.title}>{author.name}</Text>
-            {/* <Text style={styles.body}>{formatBody(post.body)}</Text> */}
+            <Text style={styles.body}>
+                <MaterialIcons name="mail" />
+                {'  '}
+                {author.email}
+            </Text>
+            <Text style={styles.body}>
+                <MaterialIcons name="business-center" />
+                {'  '}
+                {author.company.name}
+            </Text>
         </TouchableOpacity>
     );
 };
