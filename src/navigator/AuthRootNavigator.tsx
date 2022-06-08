@@ -5,6 +5,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Posts from '../screens/Posts';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Authors from '../screens/Authors';
+import { MyProfile } from '../screens/MyProfile';
 
 type TabBarIconType = {
     color: number | ColorValue | undefined;
@@ -38,6 +39,19 @@ export const AuthRootNavigator = () => {
                     tabBarIcon: ({ color, size }: TabBarIconType) => (
                         <MaterialIcons
                             name="groups"
+                            color={color}
+                            size={size}
+                        />
+                    ),
+                }}
+            />
+            <Tab.Screen
+                name="MyProfile"
+                component={MyProfile}
+                options={{
+                    tabBarIcon: ({ color, size }: TabBarIconType) => (
+                        <MaterialIcons
+                            name="person"
                             color={color}
                             size={size}
                         />

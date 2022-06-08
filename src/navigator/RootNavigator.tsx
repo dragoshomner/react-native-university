@@ -17,6 +17,7 @@ export type RootStackParamList = {
 const RootNavigator = () => {
     const { authUser } = useAuthContext();
 
+    console.log(authUser);
     return (
         <NavigationContainer>
             {authUser ? <AuthRootNavigator /> : <NoAuthRootNavigator />}

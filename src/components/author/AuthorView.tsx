@@ -57,7 +57,7 @@ const AuthorViewHeader = ({ data }: AuthorHeaderProps) => {
     );
 };
 
-const AuthorView = ({ route }: Props) => {
+export const AuthorView = ({ route }: Props) => {
     const authorId = route.params.authorId;
     const { data, isLoading } = useGetAuthorByIdQuery(authorId);
 
@@ -65,14 +65,12 @@ const AuthorView = ({ route }: Props) => {
         return <LoadingIndicator />;
     }
 
-    return (
-        data && (
-            <AuthorPosts
-                authorId={data.id}
-                headerComponent={<AuthorViewHeader data={data} />}
-            />
-        )
+    return data ? (
+        <AuthorPosts
+            authorId={data.id}
+            headerComponent={<AuthorViewHeader data={data} />}
+        />
+    ) : (
+        <View />
     );
 };
-
-export default AuthorView;

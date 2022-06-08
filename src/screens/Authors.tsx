@@ -1,7 +1,7 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React from 'react';
 import { AuthorsList } from '../components/author/AuthorsList';
-import AuthorView from '../components/author/AuthorView';
+import { AuthorView } from '../components/author/AuthorView';
 
 export type AuthorStackParamList = {
     AuthorsList: undefined;
@@ -10,7 +10,7 @@ export type AuthorStackParamList = {
 
 const AuthorStack = createNativeStackNavigator<AuthorStackParamList>();
 
-const AuthorsListNestedBarOptions = {
+const authorsListNestedBarOptions = {
     title: 'Authors',
 };
 
@@ -23,7 +23,7 @@ const Authors = () => (
         <AuthorStack.Screen
             name="AuthorsList"
             component={AuthorsList}
-            options={AuthorsListNestedBarOptions}
+            options={authorsListNestedBarOptions}
         />
         <AuthorStack.Screen
             name="AuthorView"

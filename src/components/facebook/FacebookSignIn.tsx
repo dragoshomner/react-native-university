@@ -41,7 +41,6 @@ export const FacebookSignIn = () => {
                 const myUser = {
                     email: auth().currentUser?.email,
                     name: auth().currentUser?.displayName,
-                    photo: auth().currentUser?.photoURL,
                 };
                 setAuthUser(myUser);
             })

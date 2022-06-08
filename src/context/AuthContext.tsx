@@ -16,11 +16,13 @@ const AuthProvider: React.FC<AuthProviderProps> = props => {
 
     React.useEffect(() => {
         auth().onAuthStateChanged(user => {
-            setAuthUser({
-                email: user?.email,
-                name: user?.displayName,
-                profilePhotoUrl: user?.photoURL,
-            });
+            const myUser = user?.email
+                ? {
+                      email: user?.email,
+                      name: user?.displayName,
+                  }
+                : null;
+            setAuthUser(myUser);
         });
     }, []);
 
