@@ -51,7 +51,7 @@ const RootNavigator = () => {
                     options={{
                         tabBarIcon: ({ color, size }: TabBarIconType) => (
                             <MaterialIcons
-                                name="person"
+                                name="groups"
                                 color={color}
                                 size={size}
                             />
