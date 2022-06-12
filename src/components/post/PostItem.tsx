@@ -7,13 +7,13 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../../navigator/RootNavigator';
 
 type Props = {
-    post: PostItemType;
+    data: PostItemType;
 };
 
 const MAX_TITLE_SIZE = 75;
 const MAX_BODY_SIZE = 100;
 
-export const PostItem = ({ post }: Props) => {
+export const PostItem = ({ data }: Props) => {
     const navigation =
         useNavigation<NativeStackNavigationProp<RootStackParamList>>();
 
@@ -25,12 +25,12 @@ export const PostItem = ({ post }: Props) => {
                     screen: 'PostView',
                     initial: false,
                     params: {
-                        postId: post.id,
+                        postId: data.id,
                     },
                 })
             }>
-            <Text style={styles.title}>{formatTitle(post.title)}</Text>
-            <Text style={styles.body}>{formatBody(post.body)}</Text>
+            <Text style={styles.title}>{formatTitle(data.title)}</Text>
+            <Text style={styles.body}>{formatBody(data.body)}</Text>
         </TouchableOpacity>
     );
 };

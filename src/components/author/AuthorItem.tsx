@@ -8,10 +8,10 @@ import { AuthorItemType } from '../../types/Author.types';
 import styles from './AuthorItem.style';
 
 type Props = {
-    author: AuthorItemType;
+    data: AuthorItemType;
 };
 
-export const AuthorItem = ({ author }: Props) => {
+export const AuthorItem = ({ data }: Props) => {
     const navigation =
         useNavigation<NativeStackNavigationProp<RootStackParamList>>();
 
@@ -23,20 +23,20 @@ export const AuthorItem = ({ author }: Props) => {
                     screen: 'AuthorView',
                     initial: false,
                     params: {
-                        authorId: author.id,
+                        authorId: data.id,
                     },
                 })
             }>
-            <Text style={styles.title}>{author.name}</Text>
+            <Text style={styles.title}>{data.name}</Text>
             <Text style={styles.body}>
                 <MaterialIcons name="mail" />
                 {'  '}
-                {author.email}
+                {data.email}
             </Text>
             <Text style={styles.body}>
                 <MaterialIcons name="business-center" />
                 {'  '}
-                {author.company.name}
+                {data.company.name}
             </Text>
         </TouchableOpacity>
     );

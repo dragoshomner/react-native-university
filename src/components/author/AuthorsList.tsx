@@ -1,6 +1,7 @@
 import React from 'react';
-import { FlatList, View } from 'react-native';
+import { View } from 'react-native';
 import { useGetAuthorsQuery } from '../../redux/actions/posts/authorApi';
+import AnimatedFlatList from '../utils/AnimatedFlatList';
 import { LoadingIndicator } from '../utils/LoadingIndicator';
 import { AuthorItem } from './AuthorItem';
 import styles from './AuthorsList.style';
@@ -15,13 +16,7 @@ export const AuthorsList = () => {
     return (
         <View style={styles.container}>
             <View style={styles.postsListContainer}>
-                <FlatList
-                    data={data}
-                    keyExtractor={item => item.id.toString()}
-                    maxToRenderPerBatch={10}
-                    showsVerticalScrollIndicator={false}
-                    renderItem={({ item }) => <AuthorItem author={item} />}
-                />
+                <AnimatedFlatList data={data} ChildComponent={AuthorItem} />
             </View>
         </View>
     );
