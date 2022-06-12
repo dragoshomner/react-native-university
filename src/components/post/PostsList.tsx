@@ -3,7 +3,6 @@ import { View } from 'react-native';
 import { useGetPostsQuery } from '../../redux/actions/posts/postsApi';
 import AnimatedFlatList from '../utils/AnimatedFlatList';
 import { LoadingIndicator } from '../utils/LoadingIndicator';
-import { PostItem } from './PostItem';
 import styles from './PostsList.style';
 
 export const PostsList = () => {
@@ -16,7 +15,7 @@ export const PostsList = () => {
     return (
         <View style={styles.container}>
             <View style={styles.postsListContainer}>
-                <AnimatedFlatList data={data} ChildComponent={PostItem} />
+                <AnimatedFlatList data={data} childComponentType="post" />
             </View>
         </View>
     );
