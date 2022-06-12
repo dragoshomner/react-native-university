@@ -1,5 +1,5 @@
 import React from 'react';
-import { FlatList, SafeAreaView } from 'react-native';
+import { FlatList } from 'react-native';
 import { useGetPostsByAuthorQuery } from '../../redux/actions/posts/postsApi';
 import { PostItem } from '../post/PostItem';
 import { LoadingIndicator } from '../utils/LoadingIndicator';
@@ -24,7 +24,7 @@ export const AuthorPosts = ({ authorId, headerComponent }: Props) => {
             keyExtractor={item => item.id.toString()}
             maxToRenderPerBatch={10}
             showsVerticalScrollIndicator={false}
-            renderItem={({ item }) => <PostItem post={item} />}
+            renderItem={({ item }) => <PostItem data={item} />}
             ListHeaderComponent={headerComponent}
         />
     );

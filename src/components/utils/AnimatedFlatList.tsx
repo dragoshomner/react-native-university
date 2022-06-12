@@ -1,14 +1,12 @@
 import * as React from 'react';
 import { View, StyleSheet, Animated } from 'react-native';
-import { AuthorItem } from '../author/AuthorItem';
-import { PostItem } from '../post/PostItem';
 
 export default function AnimatedFlatList({
     data,
-    childComponentType,
+    ChildComponent,
 }: {
     data: any;
-    childComponentType: any;
+    ChildComponent: any;
 }) {
     const scrollY = React.useRef(new Animated.Value(0)).current;
     return (
@@ -21,11 +19,12 @@ export default function AnimatedFlatList({
                 data={data}
                 keyExtractor={item => item.id.toString()}
                 showsVerticalScrollIndicator={false}
+                maxToRenderPerBatch={5}
                 renderItem={({ item, index }) => (
                     <AnimatedItem
                         item={item}
                         index={index}
-                        childComponentType={childComponentType}
+                        ChildComponent={ChildComponent}
                         scrollY={scrollY}
                     />
                 )}
@@ -34,7 +33,7 @@ export default function AnimatedFlatList({
     );
 }
 
-const AnimatedItem = ({ item, index, childComponentType, scrollY }: any) => {
+const AnimatedItem = ({ item, index, ChildComponent, scrollY }: any) => {
     const inputRange = [-1, 0, 140 * index, 140 * (index + 3)];
     const scale = 1;
     const opacity = scrollY.interpolate({
@@ -52,11 +51,7 @@ const AnimatedItem = ({ item, index, childComponentType, scrollY }: any) => {
                 transform: [{ scale: scale }, { translateX: Offset }],
                 opacity: opacity,
             }}>
-            {childComponentType === 'post' ? (
-                <PostItem data={item} />
-            ) : (
-                <AuthorItem data={item} />
-            )}
+            <ChildComponent data={item} />
         </Animated.View>
     );
 };

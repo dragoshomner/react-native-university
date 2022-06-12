@@ -3,6 +3,7 @@ import { View } from 'react-native';
 import { useGetAuthorsQuery } from '../../redux/actions/posts/authorApi';
 import AnimatedFlatList from '../utils/AnimatedFlatList';
 import { LoadingIndicator } from '../utils/LoadingIndicator';
+import { AuthorItem } from './AuthorItem';
 import styles from './AuthorsList.style';
 
 export const AuthorsList = () => {
@@ -15,7 +16,7 @@ export const AuthorsList = () => {
     return (
         <View style={styles.container}>
             <View style={styles.postsListContainer}>
-                <AnimatedFlatList data={data} childComponentType="author" />
+                <AnimatedFlatList data={data} ChildComponent={AuthorItem} />
             </View>
         </View>
     );
