@@ -9,20 +9,16 @@ import { Alert } from 'react-native';
 const App = () => {
     React.useEffect(() => {
         messaging().onMessage(async remoteMessage => {
-            console.log(remoteMessage);
-            let message_body = remoteMessage?.notification?.body;
-
-            let message_title = remoteMessage.notification?.title;
-
-            Alert.alert(message_title!, message_body);
+            Alert.alert(
+                remoteMessage?.notification?.body!,
+                remoteMessage.notification?.title,
+            );
         });
         messaging().setBackgroundMessageHandler(async remoteMessage => {
-            console.log(remoteMessage);
-            let message_body = remoteMessage?.notification?.body;
-
-            let message_title = remoteMessage.notification?.title;
-
-            Alert.alert(message_title!, message_body);
+            Alert.alert(
+                remoteMessage?.notification?.body!,
+                remoteMessage.notification?.title,
+            );
         });
     }, []);
 
