@@ -10,6 +10,17 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         marginBottom: 10,
     },
+    video: {
+        flex: 1,
+        flexShrink: 0,
+        flexGrow: 0.5,
+        marginTop: 10,
+        height: 20,
+        width: '100%',
+    },
+    viewGdpr: {
+        marginTop: 10,
+    },
 });
 
 export default styles;
