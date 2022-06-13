@@ -19,6 +19,8 @@ target 'FinalProject' do
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
 
+  pod 'ReactNativeExceptionHandler', :path => '../node_modules/react-native-exception-handler'
+
   target 'FinalProjectTests' do
     inherit! :complete
     # Pods for testing

@@ -73,6 +73,17 @@ export const MyProfileView = () => {
                     onPress={() => shareLinkWithShareDialog()}
                 />
             </View>
+
+            <View style={styles.viewGdpr}>
+                <Button
+                    title="Throw Exception"
+                    onPress={() => {
+                        throw new Error(
+                            'You pressed the button to throw an exception',
+                        );
+                    }}
+                />
+            </View>
         </View>
     );
 };

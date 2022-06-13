@@ -5,6 +5,8 @@ import RootNavigator from './src/navigator/RootNavigator';
 import AuthProvider from './src/context/AuthContext';
 import messaging from '@react-native-firebase/messaging';
 import { Alert } from 'react-native';
+import { setJSExceptionHandler } from 'react-native-exception-handler';
+import { errorHandler } from './src/utils/errorHandler';
 
 const App = () => {
     React.useEffect(() => {
@@ -21,6 +23,8 @@ const App = () => {
             );
         });
     }, []);
+
+    setJSExceptionHandler(errorHandler, true);
 
     console.disableYellowBox = true;
 
